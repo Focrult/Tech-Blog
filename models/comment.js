@@ -15,7 +15,7 @@ class Comment extends Model {}
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'comment',
     });
     
     module.exports = Comment;
