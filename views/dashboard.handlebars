@@ -1,0 +1,17 @@
+{{> main}}
+{{#content-for "scripts"}}
+  <script src="/js/post.js"></script>
+  <script src="/js/comment.js"></script>
+  <script src="/js/edit.js"></script>
+{{/content-for}}
+
+{{#content-for "pageTitle"}}
+  Dashboard
+{{/content-for}}
+
+{{#content-for "body"}}
+  <h1>Welcome to your Dashboard</h1>
+  <div class="posts">
+    <!-- Display user's posts here -->
+  </div>
+{{/content-for}}

@@ -1,0 +1,28 @@
+[
+    {
+      "name": "FA",
+      "email": "example@gmail.com",
+      "password": "password123"
+    },
+    {
+      "name": "Arthas",
+      "email": "mvp@gmail.com",
+      "password": "ilikeice8002"
+    },
+    {
+      "name": "Uther",
+      "email": "lightbringer@storm.com",
+      "password": "dontdisthelight2002"
+    },
+    {
+      "name": "mega",
+      "email": "mind@metro.com",
+      "password": "Presentation!"
+    },
+    {
+      "name": "Rosh",
+      "email": "WOD@okay.com",
+      "password": "WOD>BFA+SL"
+    }
+  ]
+  

@@ -1,17 +1,9 @@
 const User = require('./user.js');
 const Post = require('./post.js');
 const Comment = require('./comment.js');
-const { Sequelize } = require('sequelize');
+// const { Sequelize } = require('sequelize');
+const sequelize = require('../config/connection');
 
-const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'mysql'
-  });
-  
-  sequelize.define('user', User);
-  sequelize.define('post', Post);
-  sequelize.define('comment', Comment);
-  
     User.hasMany(Post, { 
         foreignKey: 'user_id' 
     });
@@ -22,7 +14,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
         foreignKey: 'user_id' 
     });
     Comment.belongsTo(User, { 
-        foreignKey: 'user_id' 
+      foreignKey: 'comment_user_id', as: 'commenter' 
     });
     Post.hasMany(Comment, { 
         foreignKey: 'post_id' 
@@ -46,4 +38,4 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 
 
 
-module.exports = { sequelize, User, Post, Comment};
+module.exports = { User, Post, Comment};
