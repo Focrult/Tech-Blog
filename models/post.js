@@ -11,13 +11,13 @@ content: {
     type: DataTypes.TEXT,
     allowNull: false
   },
-  user_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'user',
-      key: 'id'
-    }
-  }
+//   user_id: {
+//     type: DataTypes.INTEGER,
+//     references: {
+//       model: 'user',
+//       key: 'id'
+//     }
+//   }
 },
 {
     sequelize,
@@ -26,6 +26,6 @@ content: {
     modelName: 'post',
 });
 Post.belongsTo(User, {
-    foreignKey: 'userID'
+    foreignKey: 'user_id'
 });
 module.exports = Post;
