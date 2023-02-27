@@ -24,7 +24,7 @@ const sess = {
 
 app.use(session(sess));
 
-app.engine('handlebars', exphbs({ defaultLayout: 'layouts/main', helpers: helpers}));
+app.engine('handlebars', exphbs({ defaultLayout: 'layouts/main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.json());

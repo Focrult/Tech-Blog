@@ -2,14 +2,44 @@
 {{#content-for "scripts"}}
   <script src="/js/post.js"></script>
 {{/content-for}}
+{{#each posts}}
+  <div class="card my-4">
+    <h5 class="card-header">{{title}}</h5>
+    <div class="card-body">
+      <p class="card-text">{{content}}</p>
+      <a href="/post/{{id}}" class="btn btn-primary">Read More</a>
+    </div>
+    {{#if user}}
+      <div class="card-footer text-muted">
+        Posted by {{user.username}} on {{createdAt}}
+      </div>
+    {{else}}
+      <div class="card-footer text-muted">
+        Posted on {{createdAt}}
+      </div>
+    {{/if}}
+  </div>
+{{/each}}
 
-{{#content-for "pageTitle"}}
-  HomePage
+
+
+
+
+
+
+
+
+
+
+
+{{!-- {{!< layout}}
+{{#content-for "scripts"}}
+  <script src="/js/post.js"></script>
 {{/content-for}}
 
-{{#content-for "body"}}
+{{#each post as |post|}}
   <h1>Welcome to your Dashboard</h1>
   <div class="posts">
     <!-- Display user's posts here -->
   </div>
-{{/content-for}}
+{{/each}} --}}
