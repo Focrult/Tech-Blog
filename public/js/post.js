@@ -1,6 +1,6 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
-  
+  //REVIEW PREVIOUS CODE
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
     const date_created = document.querySelector('#post-date').value.trim();
@@ -29,15 +29,14 @@ const newFormHandler = async (event) => {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
   };
   
-  // Get all posts for the user
+//CHANGE THIS 
   const getPosts = async () => {
     const response = await fetch('/api/posts');
     if (response.ok) {
       const posts = await response.json();
       const postList = document.querySelector('.post-list');
       postList.innerHTML = '';
-  
-      // Render each post to the post list
+
       posts.forEach((post) => {
         const postCard = document.createElement('div');
         postCard.classList.add('card', 'post-card');

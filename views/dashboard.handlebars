@@ -1,17 +1,14 @@
 {{!< layout}}
-{{#content-for "scripts"}}
-  <script src="/js/post.js"></script>
-  <script src="/js/comment.js"></script>
-  <script src="/js/edit.js"></script>
-{{/content-for}}
-
-{{#content-for "pageTitle"}}
-  Dashboard
-{{/content-for}}
-
-{{#content-for "body"}}
-  <h1>Welcome to your Dashboard</h1>
-  <div class="posts">
-    <!-- Display user's posts here -->
-  </div>
-{{/content-for}}
+<div class="posts">
+  {{#each posts}}
+    <div class="post">
+      <h2 class="post-title">{{title}}</h2>
+      <p class="post-date">{{formatDate createdAt}}</p>
+      <p class="post-content">{{content}}</p>
+      <a href="/post/edit/{{id}}" class="btn btn-primary">Edit</a>
+      <a href="/post/delete/{{id}}" class="btn btn-danger">Delete</a>
+    </div>
+  {{else}}
+    <p>No posts found</p>
+  {{/each}}
+</div>
