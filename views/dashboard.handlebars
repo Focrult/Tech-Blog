@@ -2,13 +2,13 @@
 <div class="posts">
   {{#each posts}}
     <div class="post">
-      <h2 class="post-title">{{title}}</h2>
-      <p class="post-date">{{formatDate createdAt}}</p>
-      <p class="post-content">{{content}}</p>
-      <a href="/post/edit/{{id}}" class="btn btn-primary">Edit</a>
-      <a href="/post/delete/{{id}}" class="btn btn-danger">Delete</a>
+    <h2 class="post-title">{{title}}</h2>
+    <p class="post-date">{{formatDate createdAt}}</p>
+    <p class="post-content">{{content}}</p>
+    <a href="/post/edit/{{id}}" class="btn btn-primary">Edit</a>
+    <a href="/post/delete/{{id}}" class="btn btn-danger">Delete</a>
     </div>
   {{else}}
-    <p>No posts found</p>
+    <p><strong>No posts found</strong></p>
   {{/each}}
 </div>

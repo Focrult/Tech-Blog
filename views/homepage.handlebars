@@ -1,7 +1,5 @@
 {{!< layout}}
-
   <script src="/js/post.js"></script>
-
 {{#each posts}}
   <div class="card my-4">
     <h5 class="card-header">{{title}}</h5>
@@ -17,20 +15,10 @@
       <div class="card-footer text-muted">
         Posted on {{createdAt}}
       </div>
+    {{/else}}
     {{/if}}
   </div>
 {{/each}}
-
-
-
-
-
-
-
-
-
-
-
 
 {{!-- {{!< layout}}
 {{#content-for "scripts"}}

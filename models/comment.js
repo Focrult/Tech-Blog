@@ -25,11 +25,16 @@ Comment.init(
         key: 'id',
       },
     },
+
+//Testing this!
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: getCurrentTimestamp(),
     },
+
+
+
   },
   {
     sequelize,

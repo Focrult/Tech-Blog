@@ -33,9 +33,4 @@ const sequelize = require('../config/connection');
     .catch((error) => {
       console.error('Error synchronizing database:', error);
     });
-
-
-
-
-
 module.exports = { User, Post, Comment};

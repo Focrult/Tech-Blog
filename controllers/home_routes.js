@@ -12,7 +12,10 @@ router.get('/', async (req, res) => {
       include: [{ model: User }],
     });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => 
+    post.get({ 
+      plain: true 
+    }));
 
     res.render('homepage', {
       posts,
@@ -20,6 +23,7 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 
@@ -29,11 +33,9 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-
     if (!req.body.name || !req.body.email || !req.body.password) {
-      return res.status(400).json({ message: 'Please provide all required fields' });
+      return res.status(400).json({ message: 'Fill in the empty areas!' });
     }
-
     const user = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -45,19 +47,27 @@ router.post('/signup', async (req, res) => {
   } catch (err) {
  
     console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Fatal 500' });
   }
 });
 
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User }, { model: Comment, include: [User] }],
+      include: [{ 
+        model: User 
+      }, {
+         model: Comment, 
+         include: [
+          User
+        ]}],
     });
-
-    const post = postData.get({ plain: true });
-
-    res.render('post', { post, loggedIn: req.session.loggedIn });
+    const post = postData.get({ 
+      plain: true 
+    });
+    res.render('post', { 
+      post, loggedIn: req.session.loggedIn 
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -69,14 +79,21 @@ router.get('/post/:id', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.userId, {
-      include: [{ model: Post }],
+      include: [{ 
+        model: Post 
+      }],
     });
 
-    const user = userData.get({ plain: true });
+    const user = userData.get({ 
+      plain: true 
+    });
 
     const posts = user.Posts.map((post) => post.get({ plain: true }));
 
-    res.render('dashboard', { user, posts, loggedIn: true });
+    res.render('dashboard', { 
+      user, posts, 
+      loggedIn: true 
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

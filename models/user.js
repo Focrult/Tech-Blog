@@ -14,7 +14,7 @@ User.init({
     allowNull: false
   },
   email: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING, //Or text? ChECK
     allowNull: false,
     unique: true
   }
