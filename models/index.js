@@ -12,8 +12,28 @@ const sequelize = new Sequelize('database', 'username', 'password', {
   sequelize.define('post', Post);
   sequelize.define('comment', Comment);
   
-  // Add associations between models here, if needed
-  
+    User.hasMany(Post, { 
+        foreignKey: 'user_id' 
+    });
+    Post.belongsTo(User, { 
+        foreignKey: 'user_id' 
+    });
+    User.hasMany(Comment, { 
+        foreignKey: 'user_id' 
+    });
+    Comment.belongsTo(User, { 
+        foreignKey: 'user_id' 
+    });
+    Post.hasMany(Comment, { 
+        foreignKey: 'post_id' 
+    });
+    Comment.belongsTo(Post, { 
+        foreignKey: 'post_id' 
+    });
+
+
+
+
   sequelize.sync({ force: true })
     .then(() => {
       console.log('Database synchronized successfully');
