@@ -17,7 +17,7 @@ editForm.addEventListener('submit', async (event) => {
       throw new Error('Failed to update post.');
     }
 
-    // Redirect the user to the updated post page on success
+    // Redirect the user to the updated page after successful response
     window.location.href = '/posts/:postId';
   } catch (error) {
     console.error(error);

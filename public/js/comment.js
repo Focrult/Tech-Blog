@@ -3,7 +3,6 @@ const commentForm = document.querySelector('#comment-form');
 commentForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  // Get the values from the form
   const formData = new FormData(commentForm);
   const postId = formData.get('postId');
   const text = formData.get('text');
@@ -17,10 +16,10 @@ commentForm.addEventListener('submit', async (event) => {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP ERROR status: ${response.status}`);
     }
 
-    // Reload the page to show the new comment
+    //Reload the page to show the new comment! - MENTIONED in previous lesson 
     window.location.reload();
   } catch (error) {
     console.error('Error submitting comment:', error);

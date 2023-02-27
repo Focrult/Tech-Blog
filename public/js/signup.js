@@ -1,4 +1,3 @@
-// Import the User model
 const { User } = require('./models');
 
 // POST route for handling sign-up form submission
@@ -11,7 +10,6 @@ app.post('/signup', async (req, res) => {
       password: req.body.password,
     });
 
-    // Set the 'logged_in' session property to true for the new user
     req.session.logged_in = true;
 
     // Redirect the user to the dashboard page

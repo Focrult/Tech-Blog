@@ -24,7 +24,7 @@ const newFormHandler = async (event) => {
     .querySelector('.new-post-form')
     .addEventListener('submit', newFormHandler);
   
-  // Helper function to format dates
+  // Helper function to format dates Try to import another time!
   const format_date = (date) => {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
   };
