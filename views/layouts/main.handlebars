@@ -2,25 +2,53 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Tech Blog</title>
-    <link rel="stylesheet" href="../../public/css/style.css">
+      <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href=".//main.handlebars">Dashboard</a></li>
-          <li><a href="../signup.handlebars">Sign Up</a></li>
-          <li><a href="../login.handlebars">Log In</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      {{body}}
-    </main>
-    <footer>
-      <p>Only the best Tech Talks here!</p>
-    </footer>
+    <div class="container-fluid">
+      <header class="row align-items-center py-2">
+        <div class="col-md-4">
+          <h1>Tech Blog</h1>
+        </div>
+        <div class="col-md-8">
+          <nav class="float-right">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              {{#if logged_in}}
+              <li class="nav-item">
+                 <a class="nav-link" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-link" id="logout">Logout</button>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Signup</a>
+              </li>
+              {{/if}}
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="row mt-5">
+        <div class="col-md-12">
+          {{{body}}}
+        </div>
+      </main>
+    </div>
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>

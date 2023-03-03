@@ -5,13 +5,18 @@ const { getCurrentTimestamp } = require('../utils/helpers');
 class Comment extends Model {}
 Comment.init(
   {
-    text: {
+    comment_text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment_user_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',

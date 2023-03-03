@@ -1,14 +1,20 @@
-{{!< layout}}
-<div class="posts">
-  {{#each posts}}
-    <div class="post">
-    <h2 class="post-title">{{title}}</h2>
-    <p class="post-date">{{formatDate createdAt}}</p>
-    <p class="post-content">{{content}}</p>
-    <a href="/post/edit/{{id}}" class="btn btn-primary">Edit</a>
-    <a href="/post/delete/{{id}}" class="btn btn-danger">Delete</a>
-    </div>
-  {{else}}
-    <p><strong>No posts found</strong></p>
-  {{/each}}
-</div>
+<h2 style="text-align:center">Hello, {{user.username}}</h2>
+<section class="container my-5">
+  <h2 class="mb-4">Your Posts</h2>
+{{#if posts.length}}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {{#each posts as |post|}}
+          <div class="col">
+            {{> dashboard-postinfo post}}
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+  <p style="text-align:center">Start posting!</p>
+{{/if}}
+  <div class="d-grid gap-2 col-6 mx-auto text-center mt-4">
+    <button type="submit" class="btn btn-primary">
+      <a href="/dashboard/new" style="color:white;text-decoration:none">Create New Post</a>
+    </button>
+  </div>
+</section>

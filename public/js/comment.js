@@ -1,28 +1,21 @@
-const commentForm = document.querySelector('#comment-form');
-
-commentForm.addEventListener('submit', async (event) => {
+const commentFormHandler = async (event) => {
   event.preventDefault();
-
-  const formData = new FormData(commentForm);
-  const postId = formData.get('postId');
-  const text = formData.get('text');
-
-  try {
-    // Submit the comment to the server
-    const response = await fetch('/comments', {
-      method: 'POST',
-      body: JSON.stringify({ postId, text }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ERROR status: ${response.status}`);
-    }
-
-    //Reload the page to show the new comment! - MENTIONED in previous lesson 
-    window.location.reload();
-  } catch (error) {
-    console.error('Error submitting comment:', error);
-    alert('There was an error submitting your comment. Please try again.');
-  }
-});
+  const comment_text = document.querySelector('input[name="comment-body"]').value.trim();
+  const post_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+  ];
+  if (comment_text) {
+      const response = await fetch('/api/comment', {
+          method: 'POST',
+          body: JSON.stringify({post_id,comment_text}),
+          headers: {'Content-Type': 'application/json'}
+      });
+      if (response.ok) {
+          document.location.reload();
+      } else {
+          alert(response.statusText);
+          document.querySelector('#comment-form').style.display = "block";
+      }
+    }}
+document.querySelector('.comment-form')
+.addEventListener('submit', commentFormHandler);
