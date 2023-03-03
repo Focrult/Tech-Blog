@@ -23,7 +23,7 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-// Get all posts by user id
+//get all posts by user id
 router.get('/user/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({

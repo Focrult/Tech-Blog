@@ -6,17 +6,17 @@ const withAuth = require('../../utils/auth');
 // Get all comments
 router.get('/', withAuth, async (req, res) => {
   try {
-    const comments = await Comment.findAll();
-    res.status(200).json(comments);
+    const commentData = await Comment.findAll();
+    res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 router.get('/:id', async (req, res) => {
   try {
-    const comment = await Comment.findByPk(req.params.id);
-    if (comment) {
-      res.status(200).json(comment);
+    const commentData = await Comment.findByPk(req.params.id);
+    if (commentData) {
+      res.status(200).json(commentData);
     } else {
       res.status(404).json({ error: 'Comment not found' });
     }
@@ -27,12 +27,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const comment = await Comment.create({
+    const commentData = await Comment.create({
       comment_text: req.body.comment_text,
       post_id: req.body.post_id,
       user_id: req.session.user_id,
     });
-    res.status(201).json(comment);
+    res.status(201).json(commentData);
   } catch (err) {
     res.status(400).json({ error: 'Bad request' });
   }
@@ -40,10 +40,10 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const comment = await Comment.findByPk(req.params.id);
-    if (comment) {
-      await comment.update({ comment_text: req.body.comment_text });
-      res.status(200).json(comment);
+    const commentData = await Comment.findByPk(req.params.id);
+    if (commentData) {
+      await commentData.update({ comment_text: req.body.comment_text });
+      res.status(200).json(commentData);
     } else {
       res.status(404).json({ error: 'Comment not found' });
     }
@@ -55,10 +55,10 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const comment = await Comment.findByPk(req.params.id);
-    if (comment) {
-      await comment.destroy();
-      res.status(200).json(comment);
+    const commentData = await Comment.findByPk(req.params.id);
+    if (commentData) {
+      await commentData.destroy();
+      res.status(200).json(commentData);
     } else {
       res.status(404).json({ error: 'Comment not found' });
     }
