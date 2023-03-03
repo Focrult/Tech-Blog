@@ -90,9 +90,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-
-
-
 // User logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

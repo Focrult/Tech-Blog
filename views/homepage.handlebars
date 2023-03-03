@@ -1,5 +1,7 @@
-<article class="post">
-    {{#each posts as |post| }}
-        {{> post-info post}}
-    {{/each}}
-</article>
+<div class="row my-3">
+  {{#each posts as |post| }}
+    <div class="col-md-6 mb-3">
+      {{> postinfo post}}
+    </div>
+  {{/each}}
+</div>

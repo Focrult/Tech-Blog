@@ -29,7 +29,6 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('dashboard', { posts, logged_in: true });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -64,15 +63,14 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
     const post = dbPostData.get({ plain: true });
 
-    res.render('editpost', { post, logged_in: true });
+    res.render('postedit', { post, logged_in: true });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.get('/new', (req, res) => {
-  res.render('newpost');
+  res.render('postnew');
 });
 
 module.exports = router;

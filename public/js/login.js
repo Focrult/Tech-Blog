@@ -1,7 +1,7 @@
 const loginForm = document.getElementById("login-form");
 const signupForm = document.getElementById("signup-form");
 
-const loginFormHandler = async (event) => {
+  const loginFormHandler = async (event) => {
   event.preventDefault();
   // Collect values from the login form
   const username = document.querySelector('#usernamelogin').value.trim();
@@ -26,7 +26,7 @@ const loginFormHandler = async (event) => {
     }
   }};
 
-const signupFormHandler = async (event) => {
+  const signupFormHandler = async (event) => {
   event.preventDefault();
   const username = document.querySelector('#usernamesignup').value.trim();
   const password = document.querySelector('#passwordsignup').value.trim();
