@@ -1,7 +1,7 @@
-    const editFormHandler = async (event) =>{
+    const editForm= async (event) =>{
     event.preventDefault();
     const title = document.querySelector('input[name="post-title"]').value.trim();
-    const text = document.querySelector('input[name="text"]').value.trim();
+    const text = document.querySelector('textarea[name="text"]').value.trim();
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
@@ -11,9 +11,9 @@
         headers: {'Content-Type': 'application/json'}
       });
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/dashboard');
       } else {
         alert(response.statusText);
       }}
 document.querySelector('.edit-form')
-.addEventListener('submit', editFormHandler);
+.addEventListener('submit', editForm);
