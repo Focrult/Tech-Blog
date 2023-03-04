@@ -24,15 +24,12 @@ router.get('/', withAuth, async (req, res) => {
         },
       ],
     });
-
     const posts = postData.map((post) => post.get({ plain: true }));
-
     res.render('dashboard', { posts, logged_in: true });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
@@ -65,7 +62,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 router.get('/new', (req, res) => {
   res.render('postnew');
 });

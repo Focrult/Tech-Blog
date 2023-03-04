@@ -1,4 +1,4 @@
-const newFormHandler = async (event) =>{
+const newForm = async (event) =>{
     event.preventDefault();
     const title = document.querySelector('input[name="post-title"]').value;
     const text = document.querySelector('textarea[name="text"]').value;
@@ -13,4 +13,4 @@ const newFormHandler = async (event) =>{
       alert(response.statusText);
     }};
 document.querySelector('#new-post-form')
-.addEventListener('submit', newFormHandler);
+.addEventListener('submit', newForm);

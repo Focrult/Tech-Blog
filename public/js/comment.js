@@ -1,4 +1,4 @@
-const commentFormHandler = async (event) => {
+const commentForm = async (event) => {
   event.preventDefault();
   const comment_text = document.querySelector('input[name="comment-body"]').value.trim();
   const post_id = window.location.toString().split('/')[
@@ -18,4 +18,4 @@ const commentFormHandler = async (event) => {
       }
     }}
 document.querySelector('.comment-form')
-.addEventListener('submit', commentFormHandler);
+.addEventListener('submit', commentForm);

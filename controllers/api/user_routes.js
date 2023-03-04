@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 // Get all users
-
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({ attributes: { exclude: ['password'] } });
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 router.get('/user/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -37,7 +35,6 @@ router.get('/user/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 router.post('/login', async (req, res) => {
   console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
   console.log(req.body.username); //log the username
@@ -60,7 +57,6 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'Incorrect password, please try again!' });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
@@ -69,7 +65,6 @@ router.post('/login', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
-
   }
 });
 // Create a new user
@@ -89,7 +84,6 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // User logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

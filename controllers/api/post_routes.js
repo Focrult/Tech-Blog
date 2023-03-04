@@ -68,7 +68,6 @@ router.get('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // Create a new post
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -82,7 +81,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // Update a post by id
 router.put('/:id', withAuth, async (req, res) => {
   try {
@@ -99,7 +97,6 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // Delete a post by id
 router.delete('/:id', withAuth, async (req, res) => {
   try {

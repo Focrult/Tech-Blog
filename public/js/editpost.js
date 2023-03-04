@@ -1,4 +1,4 @@
-    const editForm= async (event) =>{
+    const editForm = async (event) =>{
     event.preventDefault();
     const title = document.querySelector('input[name="post-title"]').value.trim();
     const text = document.querySelector('textarea[name="text"]').value.trim();

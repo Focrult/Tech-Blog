@@ -1,7 +1,7 @@
 const loginForm = document.getElementById("login-form");
 const signupForm = document.getElementById("signup-form");
 
-  const loginFormHandler = async (event) => {
+  const loginFormMain = async (event) => {
   event.preventDefault();
   // Collect values from the login form
   const username = document.querySelector('#usernamelogin').value.trim();
@@ -26,7 +26,7 @@ const signupForm = document.getElementById("signup-form");
     }
   }};
 
-  const signupFormHandler = async (event) => {
+  const signupFormMain = async (event) => {
   event.preventDefault();
   const username = document.querySelector('#usernamesignup').value.trim();
   const password = document.querySelector('#passwordsignup').value.trim();
@@ -42,5 +42,5 @@ const signupForm = document.getElementById("signup-form");
       alert(response.statusText);
     }}};
 
-loginForm.addEventListener('submit', loginFormHandler);
-signupForm.addEventListener('submit', signupFormHandler);
+loginForm.addEventListener('submit', loginFormMain);
+signupForm.addEventListener('submit', signupFormMain);

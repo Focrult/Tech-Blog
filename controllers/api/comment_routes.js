@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-
 // Get all comments
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -24,7 +23,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
@@ -37,7 +35,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json({ error: 'Bad request' });
   }
 });
-
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id);
@@ -52,7 +49,6 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id);

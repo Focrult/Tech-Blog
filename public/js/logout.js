@@ -1,4 +1,4 @@
-  const logout = async () => {
+  const logoutForm = async () => {
   const response = await fetch('/api/user/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -9,4 +9,4 @@
     console.log(response.statusText);
   }};
 document.querySelector('#logout')
-.addEventListener('click', logout);
+.addEventListener('click', logoutForm);
