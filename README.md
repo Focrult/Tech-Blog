@@ -28,7 +28,7 @@
 ![usage](https://user-images.githubusercontent.com/114898970/222900188-ea16e2da-95b9-4f7e-bd39-584dffbcff64.png)
 
   ## Screenshots
-  #Link to the deployed application:
+  # Link to the deployed application:
   https://dry-retreat-09752.herokuapp.com/
   ![img1](https://user-images.githubusercontent.com/114898970/222900209-2cc43a45-0f7f-4842-940f-0593f9625b2f.png)
   ![img2](https://user-images.githubusercontent.com/114898970/222900210-1c53f5af-a52b-4ec0-aa8a-4379fe94e57e.png)
